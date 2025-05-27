@@ -1,0 +1,38 @@
+general {
+        output_format = "i3bar"
+        colors = true
+        interval = 1
+}
+
+order += "battery 1"
+order += "memory"
+order += "disk /"
+order += "tztime local"
+
+battery 1 {
+        format = "%status %percentage"
+	status_chr = "CHR"
+        status_bat = "BAT"
+        status_unk = "? UNK"
+	path = "/sys/class/power_supply/BAT1/uevent"
+        low_threshold = 15
+        threshold_type = "percentage"
+}
+
+disk "/" {
+        format = " DISK: %percentage_used "
+	low_threshold = 7
+	threshold_type = "gbytes_avail"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S  "
+}
+
+memory {
+        format = " RAM: %percentage_used "
+#        format = "%used | %free"
+	threshold_degraded = 10%
+        threshold_critical = 5%
+	format_degraded = "LOW RAM: %percentage_used "
+}
