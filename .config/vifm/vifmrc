@@ -12,10 +12,10 @@
 " Command used to edit files in various contexts.  The default is vim.
 " If you would like to use another vi clone such as Elvis or Vile
 " you will need to change this setting.
-if executable('vim')
-    set vicmd=vim
-elseif executable('nvim')
+if executable('nvim')
     set vicmd=nvim
+elseif executable('vim')
+    set vicmd=vim
 elseif executable('elvis')
     set vicmd=elvis\ -G\ termcap
 elseif executable('vile')
@@ -220,14 +220,14 @@ filextype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
           \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
           \*.as[fx],*.unknown_video},
          \<video/*>
+        \ {Play using mpv}
+        \ mpv %f,
         \ {View using ffplay}
         \ ffplay -fs -hide_banner -autoexit %f,
         \ {View using Dragon}
         \ dragon %f:p,
         \ {View using mplayer}
         \ mplayer %f,
-        \ {Play using mpv}
-        \ mpv --no-video %f,
 fileviewer {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
            \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
            \*.as[fx],*.unknown_video},
