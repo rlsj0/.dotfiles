@@ -6,5 +6,6 @@ vim.opt_local.autoindent = true
 
 -- Fold variables
 
+vim.g.markdown_folding = 1
 vim.o.foldlevelstart = 1
 vim.o.foldlevel = 1
