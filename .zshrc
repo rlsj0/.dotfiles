@@ -23,6 +23,9 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 
+alias backup='restic -r sftp:user@mi-server:/srv/backups/restic-portatil backup /home/user \
+	--exclude="Downloads" --exclude="Videos" --exclude=".cache" --exclude=".npm"'
+
 # PS1='[\u@\h \W]\$ '
 
 # Alguna personalizacion
